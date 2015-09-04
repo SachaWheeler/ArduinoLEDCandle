@@ -1,0 +1,11 @@
+ // crop the video
+ // ffmpeg -i Candle\ clipped.mov -vf "crop=361:361:160:0" -strict -2 Clipped\ croppped-361b.mp4
+ ffmpeg -i Candle\ clipped.mov -vf "crop=275:275:210:0" -strict -2 Clipped\ croppped-275.mp4
+
+ // resize it to 16x16
+ // ffmpeg -i input.avi -vf scale=320:240 output.avi
+ ffmpeg -i Candle\ final.mp4 -strict -2 -vf scale=16:16 Candle.16x16.mp4
+
+ // split it into pngs
+ // ffmpeg -i inputfile.avi  -r  1  -t  4  image-%d.jpeg
+ ffmpeg -i Candle\ final.mp4  -r 4  images/image-%03d.png
