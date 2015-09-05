@@ -65,13 +65,14 @@
 <h2>
 <a id="processing-the-frames" class="anchor" href="#processing-the-frames" aria-hidden="true"><span class="octicon octicon-link"></span></a>Processing the frames</h2>
 
-<p>&lt;?php
-    $files = glob("images/*.png");
-    foreach($files as $png){
-        echo " { // {$png}\n";
-        $im = ImageCreateFromPng($png); </p>
+<p>&lt;?php</p>
 
-<pre><code>    $imgw = imagesx($im);
+<pre><code>$files = glob("images/*.png");
+foreach($files as $png){
+    echo " { // {$png}\n";
+    $im = ImageCreateFromPng($png); 
+
+    $imgw = imagesx($im);
     $imgh = imagesy($im);
 
     // reduce to 8x8
