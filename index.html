@@ -108,7 +108,7 @@ foreach($files as $png){
             // set the gray value
             // imagesetpixel ($im, $i, $j, $val);
 
-            echo $g&gt;20?1:0;
+            echo $g&gt;20?1:0; // This is where I decide to output TRUE or FALSE based on the threshold (20 in this case). If I can output partial values (on another matrix) I'll remove this
             // if($j&lt;$dest_imgw-1) echo ", ";
         }
         // echo "},\n";
@@ -120,6 +120,24 @@ foreach($files as $png){
 </code></pre>
 
 <p>?&gt;</p>
+
+<h2>
+<a id="output" class="anchor" href="#output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Output</h2>
+
+<p>The script above gives me the data structure I need to paste into my Arduino Code</p>
+
+<blockquote>
+<p>{ // images/image-001.png
+  B00000000,  B00110000,  B00110000,  B00110000,  B00111000,  B00111000,  B00011000,  B00000000}, 
+ { // images/image-002.png
+  B00000000,  B00110000,  B00110000,  B00110000,  B00111000,  B00111000,  B00011000,  B00000000}, 
+ { // images/image-003.png
+  B00000000,  B00110000,  B00110000,  B00110000,  B00111000,  B00111000,  B00111000,  B00000000}, 
+ { // images/image-004.png
+  B00000000,  B00110000,  B00110000,  B00110000,  B00111000,  B00111000,  B00111000,  B00000000}, 
+ { // images/image-005.png
+  B00100000,  B01110000,  B00110000,  B00111000,  B00111000,  B00111000,  B00111000,  B00000000},</p>
+</blockquote>
 
 <h2>
 <a id="result" class="anchor" href="#result" aria-hidden="true"><span class="octicon octicon-link"></span></a>Result</h2>
