@@ -44,20 +44,24 @@
 <p>I probably could have shot something myself, but I did a search and found this on youtube
 <img src="https://j.gifs.com/Kz8JGP.gif" alt=""></p>
 
-<p>Which I grabbed using:
-<code>youtube-dl https://www.youtube.com/watch?v=FZc9a5Kg8Yk</code></p>
+<p>Which I grabbed using:</p>
+
+<p><code>youtube-dl https://www.youtube.com/watch?v=FZc9a5Kg8Yk</code></p>
 
 <h2>
 <a id="trim-it" class="anchor" href="#trim-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trim it</h2>
 
-<p>I cropped it down to a square, including only the flame
-<code>ffmpeg -i Candle\ clipped.mov -vf "crop=275:275:210:0" -strict -2 Clipped\ final.mp4</code></p>
+<p>I cropped it down to a square, including only the flame:</p>
 
-<p>Scaled it down to 16x16 pixels
-<code>ffmpeg -i Candle\ final.mp4 -strict -2 -vf scale=16:16 Candle.16x16.mp4</code></p>
+<p><code>ffmpeg -i Candle\ clipped.mov -vf "crop=275:275:210:0" -strict -2 Clipped\ final.mp4</code></p>
 
-<p>And split it into it's frames (4 per second seemed sufficient):
-<code>ffmpeg -i Candle\ final.mp4  -r 4  images/image-%03d.png</code></p>
+<p>Scaled it down to 16x16 pixels:</p>
+
+<p><code>ffmpeg -i Candle\ final.mp4 -strict -2 -vf scale=16:16 Candle.16x16.mp4</code></p>
+
+<p>And split it into it's frames (4 per second seemed sufficient):</p>
+
+<p><code>ffmpeg -i Candle\ final.mp4  -r 4  images/image-%03d.png</code></p>
 
 <p>which left me with this:
 <img src="http://sachawheeler.com/images/LEDCandle-images.png" alt=""></p>
