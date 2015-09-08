@@ -1,5 +1,6 @@
 <?php
-	$files = glob("images/*.png");
+	// image.8x16-006.png
+	$files = glob("images/image.8x16-*.png");
 	foreach($files as $png){
 		echo " { // {$png}\n";
 		$im = ImageCreateFromPng($png); 
@@ -8,8 +9,8 @@
 		$imgh = imagesy($im);
 	
 		// reduce to 8x8
-		$bw_image = imagecreatetruecolor(8, 8);
-		imagecopyresampled($bw_image, $im, 0, 0, 0, 0, 8, 8, $imgw, $imgh);
+		$bw_image = imagecreatetruecolor(8, 16);
+		imagecopyresampled($bw_image, $im, 0, 0, 0, 0, 8, 16, $imgw, $imgh);
 	
 		$dest_imgw = imagesx($bw_image);
 		$dest_imgh = imagesy($bw_image);
