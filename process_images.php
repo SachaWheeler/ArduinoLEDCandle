@@ -1,5 +1,6 @@
 <?php
-	$files = glob("images/*.png");
+	// image.8x16-006.png
+	$files = glob("images/image.8x16-*.png");
 	foreach($files as $png){
 		echo " { // {$png}\n";
 		$im = ImageCreateFromPng($png); 
@@ -8,15 +9,15 @@
 		$imgh = imagesy($im);
 	
 		// reduce to 8x8
-		$bw_image = imagecreatetruecolor(8, 8);
-		imagecopyresampled($bw_image, $im, 0, 0, 0, 0, 8, 8, $imgw, $imgh);
+		$bw_image = imagecreatetruecolor(8, 16);
+		imagecopyresampled($bw_image, $im, 0, 0, 0, 0, 8, 16, $imgw, $imgh);
 	
 		$dest_imgw = imagesx($bw_image);
 		$dest_imgh = imagesy($bw_image);
 
 		for ($i=0; $i<$dest_imgh; $i++)
 		{
-			echo "  B";
+			echo "  {";
         	for ($j=0; $j<$dest_imgw; $j++)
         	{
             	// get the rgb value for current pixel
@@ -36,12 +37,12 @@
             	// set the gray value
            		// imagesetpixel ($im, $i, $j, $val);
 				
-				echo $g>20?1:0;
-				// if($j<$dest_imgw-1) echo ", ";
+				echo $g; //echo $g>20?1:0;
+				if($j<$dest_imgw-1) echo ", ";
         	}
-			// echo "},\n";
-			if($i<$dest_imgh-1) echo ",";
-			// echo "\n";
+			echo " }";
+			if($i<$dest_imgh-1) echo ", ";
+			echo "\n";
 		}
 		echo "}, \n";
 	}
