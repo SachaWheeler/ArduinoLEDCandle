@@ -17,7 +17,7 @@
 
 		for ($i=0; $i<$dest_imgh; $i++)
 		{
-			echo "  B";
+			echo "  {";
         	for ($j=0; $j<$dest_imgw; $j++)
         	{
             	// get the rgb value for current pixel
@@ -37,12 +37,12 @@
             	// set the gray value
            		// imagesetpixel ($im, $i, $j, $val);
 				
-				echo $g>20?1:0;
-				// if($j<$dest_imgw-1) echo ", ";
+				echo $g; //echo $g>20?1:0;
+				if($j<$dest_imgw-1) echo ", ";
         	}
-			// echo "},\n";
-			if($i<$dest_imgh-1) echo ",";
-			// echo "\n";
+			echo " }";
+			if($i<$dest_imgh-1) echo ", ";
+			echo "\n";
 		}
 		echo "}, \n";
 	}
